@@ -6,7 +6,7 @@
 
 <%@page import="java.util.List"%>
 <%@page import="com.cac.pojo.Orator"%>
-
+<%@include file="updateOratorModal.jsp"%>
 <section class="col-9 mx-auto mb-3" id="orator-table">   
     <div class="container my-2 text-center">
         <h2>Tabla de oradores</h2>
@@ -33,13 +33,16 @@
                 %>
                 <tr>
                     <td><%=orator.getId()%></td>
-                    <td><%=orator.getName()%></td>
+                    <td><%=orator.getFirstName()%></td>
                     <td><%=orator.getLastname()%></td>
                     <td><%=orator.getEmail()%></td>
                     <td><%=orator.getTopic()%></td>
                     <td>
-                        <a class="btn btn-warning btn-sm" href="<%=request.getContextPath()%>/api/UpdateOratorController?id=<%=orator.getId()%>">Edit</a>
-                        <a class="btn btn-danger btn-sm" href="<%=request.getContextPath()%>/api/DeleteOratorController?id=<%=orator.getId()%>" >Delete</a>
+                        <button type="button" class="btn btn-warning btn-sm" onclick="openUpdateOratorModal('<%=orator.getId()%>', '<%=orator.getFirstName()%>', '<%=orator.getLastname()%>', '<%=orator.getEmail()%>', '<%=orator.getTopic()%>')">
+                            Edit
+                        </button>
+
+                        <a class="btn btn-danger btn-sm" href="<%=request.getContextPath()%>/DeleteOratorController?id=<%=orator.getId()%>" >Delete</a>
                     </td>
                 </tr>
                 <%

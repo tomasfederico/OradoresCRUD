@@ -17,6 +17,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import com.cac.pojo.Orator;
+import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,10 +25,46 @@ public class OratorDAO {
 
     static Logger logger = LoggerFactory.getLogger(OratorDAO.class);
 
-    private static final String SQL_SELECT = "SELECT * FROM oradores";
+    private static final String SQL_SELECT_ALL = "SELECT * FROM oradores";
+    private static final String SQL_SELECT_BY_ID = "SELECT * FROM oradores WHERE id = ?";
     private static final String SQL_INSERT = "INSERT INTO oradores(firstname, lastname, email, topic) VALUES (?, ?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE oradores SET firstname = ?, lastname = ?, email = ?, topic = ? WHERE id = ?";
     private static final String SQL_DELETE = "DELETE FROM oradores WHERE id = ?";
+
+    public Orator getOratorById(int id) {
+
+        //Connection
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        int registros = 0;
+        Orator orator = null;
+
+        //Statement
+        try {
+            conn = ConnectionController.getConnection();
+            stmt = conn.prepareStatement(SQL_SELECT_BY_ID);
+            stmt.setInt(1, id);
+
+            rs = stmt.executeQuery();
+
+            //VIENE UN SOLO REGISTRO!!!
+            if (rs.next()) {
+                id = rs.getInt(1);
+                String firstname = rs.getString(2);
+                String lastname = rs.getString(3);
+                String email = rs.getString(4);
+                String topic = rs.getString(5);
+
+                //campos crear un objeto????
+                orator = new Orator(id, firstname, lastname, email, topic);
+            }
+        } catch (SQLException e) {
+            // ERRORES
+            e.printStackTrace();
+        }
+        return orator;
+    }
 
     public List<Orator> getAllOrators() throws SQLException, NullPointerException, ClassNotFoundException,
             InstantiationException, IllegalAccessException {
@@ -43,7 +80,7 @@ public class OratorDAO {
             conn = ConnectionController.getConnection();
             stmt = conn.createStatement();
             System.out.println("DAO: Creada la conexion");
-            rs = stmt.executeQuery(SQL_SELECT);
+            rs = stmt.executeQuery(SQL_SELECT_ALL);
             System.out.println("DAO: Se EJECUTO la query");
             while (rs.next()) {
 
@@ -83,7 +120,7 @@ public class OratorDAO {
         try {
             conn = ConnectionController.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setString(1, orator.getName());
+            stmt.setString(1, orator.getFirstName());
             stmt.setString(2, orator.getLastname());
             stmt.setString(3, orator.getEmail());
             stmt.setString(4, orator.getTopic());
@@ -93,11 +130,8 @@ public class OratorDAO {
             ex.printStackTrace(System.out);
         } finally {
             try {
-                logger.info("Entro al finally-try");
                 stmt.close();
-                logger.info("despues de close stmt");
                 conn.close();
-                logger.info("despues de close conn");
             } catch (SQLException ex) {
                 ex.getMessage();
             }
@@ -113,11 +147,11 @@ public class OratorDAO {
         try {
             conn = ConnectionController.getConnection();
             stmt = conn.prepareStatement(SQL_UPDATE);
-            stmt.setString(1, orator.getName());
+            stmt.setString(1, orator.getFirstName());
             stmt.setString(2, orator.getLastname());
             stmt.setString(3, orator.getEmail());
             stmt.setString(4, orator.getTopic());
-            stmt.setLong(5, orator.getId());
+            stmt.setInt(5, orator.getId());
             registros = stmt.executeUpdate();
         } catch (SQLException | NullPointerException ex) {
             ex.printStackTrace(System.out);
@@ -133,14 +167,14 @@ public class OratorDAO {
         return registros;
     }
 
-    public int deleteOrator(Long i) {
+    public int deleteOrator(int i) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int registros = 0;
         try {
             conn = ConnectionController.getConnection();
             stmt = conn.prepareStatement(SQL_DELETE);
-            stmt.setLong(1, i);
+            stmt.setInt(1, i);
             registros = stmt.executeUpdate();
         } catch (SQLException | NullPointerException ex) {
             ex.printStackTrace(System.out);

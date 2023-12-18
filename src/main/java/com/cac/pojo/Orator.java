@@ -21,8 +21,8 @@ public class Orator {
     }
 
     // Constructor Completo con ID
-    public Orator(int idOrador, String firstname, String lastname, String email, String topic) {
-        this.id = idOrador;
+    public Orator(int id, String firstname, String lastname, String email, String topic) {
+        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -46,11 +46,11 @@ public class Orator {
         this.id = id;
     }
 
-    public String getName() {
+    public String getFirstName() {
         return firstname;
     }
 
-    public void setName(String firstname) {
+    public void setFirstName(String firstname) {
         this.firstname = firstname;
     }
 

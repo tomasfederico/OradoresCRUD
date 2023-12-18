@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
  */
 public class QueryTester {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, ClassNotFoundException, InstantiationException, InstantiationException, IllegalAccessException, InstantiationException, InstantiationException, IllegalAccessException, InstantiationException, IllegalAccessException {
 
         OratorDAO dao = new OratorDAO();
         System.out.println("*** CREE AL DAO ***");
@@ -37,6 +37,51 @@ public class QueryTester {
         } catch (SQLException | NullPointerException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(GetAllOratorsController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        // pruebas de actualizacion de parametros
+        /*try {
+            Orator orator = dao.getOratorById(7);
+            System.out.println(orator.getId());
+            System.out.println(orator.getFirstName());
+            System.out.println(orator.getLastname());
+            System.out.println(orator.getEmail());
+            System.out.println(orator.getTopic());
+            System.out.println("Ahora a modificarlo...!");
+            System.out.println("Creando orator auxiliar...asigno el id=7");
+            Orator editedOrator = new Orator(7,"JUAN", "PEREZ", "JPEREZ@GMAIL.COM", "FULLSTACK PYTHON 1");
+            System.out.println("Actualizando orator ...");
+            dao.updateOrator(editedOrator);
+            System.out.println("Actualizado!");
+            
+            System.out.println("Ahora vuelvo a leer el valor!");
+            orator = dao.getOratorById(7);
+            System.out.println(orator.getId());
+            System.out.println(orator.getFirstName());
+            System.out.println(orator.getLastname());
+            System.out.println(orator.getEmail());
+            System.out.println(orator.getTopic());
+
+        } catch (NullPointerException ex) {
+            Logger.getLogger(GetAllOratorsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+                // pruebas de agregar orador
+        try {
+            Orator orator = new Orator("MICAELA","IBANEZ","MI@GMAIL.COM","INTRODUCCION A PYTHON");
+            dao.addOrator(orator);            
+            System.out.println("Ahora PASO a leer el valor!");
+            orator = dao.getOratorById(12);
+            System.out.println(orator.getId());
+            System.out.println(orator.getFirstName());
+            System.out.println(orator.getLastname());
+            System.out.println(orator.getEmail());
+            System.out.println(orator.getTopic());
+
+        } catch (NullPointerException ex) {
+            Logger.getLogger(GetAllOratorsController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException | IllegalAccessException ex) {
+            Logger.getLogger(QueryTester.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+
     }
 
 }

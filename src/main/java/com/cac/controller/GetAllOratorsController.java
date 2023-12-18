@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+//@WebServlet(urlPatterns = {"/index.html"})
 @WebServlet(urlPatterns = {"/index.html"})
 public class GetAllOratorsController extends HttpServlet {
     private static final Logger logger = Logger.getLogger(GetAllOratorsController.class.getName());

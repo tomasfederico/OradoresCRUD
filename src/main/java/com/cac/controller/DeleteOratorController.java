@@ -17,19 +17,19 @@ import com.cac.dao.OratorDAO;
  *
  * @author Tomas
  */
-@WebServlet("/api/DeleteOratorController")
+@WebServlet("/DeleteOratorController")
 public class DeleteOratorController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String id = req.getParameter("id");
-
+        int id = Integer.parseInt(req.getParameter("id"));
+       
         OratorDAO dao = new OratorDAO();
 
-        dao.deleteOrator(Long.valueOf(id));
+        dao.deleteOrator(id);
 
-        resp.sendRedirect(req.getContextPath() + "/api/ListadoController");
+        resp.sendRedirect(req.getContextPath());
 
     }
 }
