@@ -33,7 +33,7 @@ public class UpdateOratorController extends HttpServlet {
         // Crear OratorDAO
         OratorDAO dao = new OratorDAO();
         // Crear Orator
-        Orator orator = new Orator(7,firstname,lastname,email,topic);
+        Orator orator = new Orator(id,firstname,lastname,email,topic);
 
         //invocar actualizarProducto(params)
         dao.updateOrator(orator);
