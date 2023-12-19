@@ -4,6 +4,10 @@
 
 Proyecto Final Integrador de la cursada de CODO A CODO - FULLSTACK JAVA - 2DO CUATRIMESTRE 2023
 
+Profesor: Nicolás Rivera
+
+Comisión: 23560
+
 La aplicación web Oradores CRUD es una interfaz de usuario que incluye las siguientes funcionalidades:
 
 - Mostrar un listado de oradores a partir de una base de datos.
@@ -13,7 +17,7 @@ La aplicación web Oradores CRUD es una interfaz de usuario que incluye las sigu
 
 ## DEMOSTRACION EN VIDEO
 
-- **Link al Video:** [https://github.com/tomasfederico/OradoresCRUD/blob/master/VIDEO-DEMO-TF.mkv](#)
+- **Link al Video:** https://github.com/tomasfederico/OradoresCRUD/blob/master/VIDEO-DEMO-TF.mkv
 
 En el video demostrativo, se explican y muestran todas las funcionalidades del programa, incluyendo la navegación por la interfaz, la manipulación de registros y el uso del formulario para agregar, eliminar o editar oradores.
 
