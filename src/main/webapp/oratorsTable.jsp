@@ -7,6 +7,7 @@
 <%@page import="java.util.List"%>
 <%@page import="com.cac.pojo.Orator"%>
 <%@include file="updateOratorModal.jsp"%>
+<%@include file="deleteOratorModal.jsp"%>
 <section class="col-9 mx-auto mb-3" id="orator-table">   
     <div class="container my-2 text-center">
         <h2>Tabla de oradores</h2>
@@ -42,12 +43,14 @@
                             Edit
                         </button>
 
-                        <a class="btn btn-danger btn-sm" href="<%=request.getContextPath()%>/DeleteOratorController?id=<%=orator.getId()%>" >Delete</a>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="openDeleteOratorModal('<%=orator.getId()%>')">
+                            Eliminar
+                        </button>
                     </td>
                 </tr>
                 <%
                     } // FINISH LOOP TO CREATE TABLE
-%>
+                %>
             </tbody>
         </table>
     </div>

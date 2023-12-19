@@ -58,4 +58,40 @@ function closeUpdateOratorModal() {
     modal.hide();
 }
 
+/* FRONTEND FUNCTIONS TO DELETE AN ORATOR
+ * openDeleteOratorModal
+ * deleteOrator
+ * closeDeleteOratorModal
+ */
 
+function openDeleteOratorModal(id) {
+
+    console.log('ID: ', id);
+
+    // Get the modal element
+    var deleteOratorModal = document.getElementById('deleteOratorModal');
+
+    // Set the orator ID in the form input
+    var deleteOratorId = document.getElementById('deleteOratorId');
+    deleteOratorId.value = id;
+
+    console.log('value > ', deleteOratorId.value)
+
+    // Show the confirmation modal
+    var modal = new bootstrap.Modal(deleteOratorModal);
+    modal.show();
+}
+
+function deleteOrator() {
+    // Directly use the ID to trigger the servlet or perform any action
+    // Submit the form when the "Eliminar" button is clicked
+    var deleteOratorForm = document.getElementById('deleteOratorForm');
+    deleteOratorForm.submit();
+    // Close the modal if needed
+    closeDeleteOratorModal();
+}
+
+function closeDeleteOratorModal() {
+    var modal2 = new bootstrap.Modal(document.getElementById('deleteOratorModal'));
+    modal2.hide();
+}
