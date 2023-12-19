@@ -9,7 +9,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-dark text-white text-center">
-                <h5 class="modal-title" id="updateOratorModalLabel">Editar Orador</h5>
+                <h5 class="modal-title" id="updateOratorModalLabel">Editar Orador/a</h5>
             </div>
             <div class="modal-body">
                 <!-- Form for updating orator details -->
@@ -37,8 +37,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>               
-                <button type="button" class="btn btn-primary" onclick="updateOrator()">Confirm</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>               
+                <button type="button" class="btn btn-primary" onclick="updateOrator()">Confirmar Cambios</button>
             </div>
         </div>
     </div>

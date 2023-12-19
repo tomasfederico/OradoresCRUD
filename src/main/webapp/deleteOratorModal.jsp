@@ -9,7 +9,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-dark text-white text-center">
-                <h5 class="modal-title" id="deleteOratorModalTitle">Eliminar Orador</h5>
+                <h5 class="modal-title" id="deleteOratorModalTitle">Eliminar Orador/a</h5>
             </div>
             <div class="modal-body">
                 Estás seguro/a que deseas eliminar a este orador/a?

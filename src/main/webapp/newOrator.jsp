@@ -39,16 +39,15 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="confirmAddOratorModalLabel">Confirmation</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title" id="confirmAddOratorModalLabel">Agregar Orador/a</h5>
                     </div>
                     <div class="modal-body">
-                        <p>Seguro/a que deseas agregar un item con esta informacion?</p>
+                        <p>Seguro/a que deseas agregar un ítem con esta información?</p>
                         <p id="modalContent">modelContent with no changes</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-success" onclick="submitAddOratorForm()">OK</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-success" onclick="submitAddOratorForm()">Confirmar</button>
                     </div>
                 </div>
             </div>

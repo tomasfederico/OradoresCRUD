@@ -26,11 +26,18 @@
 
             <% // JAVA CODE: REQUEST ORADORES TABLE INFO FROM SQL DATABASE
                 List<Orator> orators = (List<Orator>) request.getAttribute("orators");
-                System.out.println("hola");
+
+                int pageSize = 10; // Number of items per page
+                int currentPage = (request.getParameter("currentPage") != null) ? Integer.parseInt(request.getParameter("currentPage")) : 1;
+                int startIdx = (currentPage - 1) * pageSize; // Start index 
+                int endIdx = Math.min(startIdx + pageSize, orators.size()); // End index
+
+                List<Orator> displayedOrators = orators.subList(startIdx, endIdx);
+
             %>
             <tbody>
-                <%
-                    for (Orator orator : orators) {
+                <%                    //for (Orator orator : orators) {
+                    for (Orator orator : displayedOrators) {
                 %>
                 <tr>
                     <td><%=orator.getId()%></td>
@@ -40,7 +47,7 @@
                     <td><%=orator.getTopic()%></td>
                     <td>
                         <button type="button" class="btn btn-warning btn-sm" onclick="openUpdateOratorModal('<%=orator.getId()%>', '<%=orator.getFirstName()%>', '<%=orator.getLastname()%>', '<%=orator.getEmail()%>', '<%=orator.getTopic()%>')">
-                            Edit
+                            Editar
                         </button>
 
                         <button type="button" class="btn btn-danger btn-sm" onclick="openDeleteOratorModal('<%=orator.getId()%>')">
@@ -52,7 +59,23 @@
                     } // FINISH LOOP TO CREATE TABLE
                 %>
             </tbody>
+            <!-- Bootstrap 5.2.3 Pagination Links -->
         </table>
+        <!-- Bootstrap 5.2.3 Pagination Links -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <%
+                    int totalPages = (int) Math.ceil((double) orators.size() / pageSize);
+                    for (int i = 1; i <= totalPages; i++) {
+                %>
+                <li class="page-item <%= (i == currentPage) ? "active" : ""%>">
+                    <a class="page-link" href="?currentPage=<%= i%>&pageSize=<%= pageSize%>"><%= i%></a>
+                </li>
+                <%
+                    }
+                %>
+            </ul>
+        </nav>
     </div>
 </div>
 </section>
