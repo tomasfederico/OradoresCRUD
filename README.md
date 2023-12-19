@@ -13,7 +13,7 @@ La aplicación web Oradores CRUD es una interfaz de usuario que incluye las sigu
 
 ## DEMOSTRACION EN VIDEO
 
-- **Link al Video:** [++link yet unavailable++](#)
+- **Link al Video:** [https://github.com/tomasfederico/OradoresCRUD/blob/master/VIDEO-DEMO-TF.mkv](#)
 
 En el video demostrativo, se explican y muestran todas las funcionalidades del programa, incluyendo la navegación por la interfaz, la manipulación de registros y el uso del formulario para agregar, eliminar o editar oradores.
 
